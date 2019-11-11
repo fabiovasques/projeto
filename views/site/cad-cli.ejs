@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/validator.js"></script>
+    <link rel="stylesheet" href="#.css" />
+    <title>INTRANET DEFEND</title>
+</head>
+<body>
+
+    <nav class="navbar- navbar-inverse">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastros
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="cad-cli.html">EPIS</a></li>
+                <li><a href="#">Fornecedores</a></li>
+                <li><a href="#">Funcionários</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Contato</a></li>
+            <li><a href="login.html">Login</a></li>
+
+            </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid text-center">    
+        <div class="row content">
+          <div class="col-sm-10"> 
+            <div class="text">
+              <br>
+                <fieldset class="conjunto" name="cadastro">
+                    <form action="sucesso.html" id="formExemplo" class="formulario data-toggle="validator" role="form">
+                        <legend class="legend" name="nome"> Cadastro de epis</legend>
+                            <div class="form-group">
+                              <label for="textNome" class="control-label">Nome do EPI</label>
+                              <input id="textNome" class="form-control" placeholder="Digite o EPI..." type="text" required>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label for="inputRua" class="control-label">Certificado de aprovação do epi</label>
+                              <input id="inputEmail" class="form-control" placeholder="Insira o C.A" type="text" 
+                                data-error="Por favor, informe a rua corretamente." required>
+                              <div class="help-block with-errors"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label for="inputBairro" class="control-label">Data do vencimento do EPI</label>
+                              <input type="text" class="form-control" id="inputBairro" placeholder="vencimento do EPI"  
+                              data-error="Por favor, informe a rua corretamente." required>
+                              <div class="help-block with-errors"></div>
+
+                            </div>
+                            
+                            <div class="form-group">
+                                    <label for="inputNúmero" class="control-label">Número</label>
+                                    <input type="number" class="form-control" id="inputNúmero" placeholder="Digite o Número de sua casa..."  
+                                    data-error="Por favor, informe o Número corretamente." required>
+                                    <div class="help-block with-errors"></div>
+      
+                            </div>
+          
+                            <div class="form-group">
+                                    <label for="inputCidade" class="control-label">Cidade</label>
+                                    <br>
+                                    <select for="inputCidade" width="300px" class="form-control" placeholder="Digite sua Cidade" >
+                                            <option value="hulha">Hulha Negra</option>
+                                            <option value="bage">Bagé</option>
+                                            <option value="Dom">Dom Pedrito</option>
+                                            <option value="acegua">Aceguá</option>
+                                   
+                                    data-error="Por favor, informe sua cidade corretamente." required>
+                                    <div class="help-block with-errors"></div>
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="inputEstado" class="control-label">Estado</label>
+                              <br>
+                              <select for="inputEstado" width="300px" class="form-control">
+                                      <option value="hulha">RS</option>
+                                      <option value="bage">SC</option>
+                             
+                              data-error="Por favor, informe seu Estado corretamente." required>
+                              <div class="help-block with-errors"></div>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="inputCftv" class="control-label">Possui CFTV?</label>
+                              <br>
+                              <select for="inputCftv"  class="form-control">
+                                      <option value="cftv">SIM</option>
+                                      <option value="cftv">NÃO</option>
+                             
+                              data-error="Por favor, responda a pergunta." required>
+                              <div class="help-block with-errors"></div>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label for="inputData" class="control-label">Data de instalação</label>
+                              <input type="date" class="form-control" id="inputData" placeholder="Digite a data de instalação..."  
+                              data-error="Por favor, informe o data corretamente." required>
+                              <div class="help-block with-errors"></div>
+
+                            </div>
+
+
+                            <div class="form-group">
+                              <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" data-error="Você deve marcar este campo!" required> Marque este item.
+                                </label>
+                                <div class="help-block with-errors"></div>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+
+                    </form>
+                 </fieldset>
+
+
+                </div>
+                <hr>
+              </div>
+              <div class="col-sm-2 sidenav">
+                <div class="well">
+                  <img src="img/central.jpeg" class="img-thumbnail" alt="defend sistemas"> 
+                  <img src="img/logo.jpeg" class="img-thumbnail" alt="defend sistemas"> 
+                  <img src="img/energiasolar.jpeg" class="img-thumbnail" alt="defend sistemas"> 
+                  <img src="img/dvr.jpeg" class="img-thumbnail" alt="defend sistemas"> 
+      
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <footer class="modal-footer">
+            <p>Defend sistemas de segurança Rua Presidente Vargas, 526 - Centro - Bagé, RS - CEP: 96400-410 <br> "Intranet" desenvolvido por -Fábio Vasques</p>
+          </footer>
+          
+          </body>
+          </html>
+          
+

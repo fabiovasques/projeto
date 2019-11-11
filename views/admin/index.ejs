@@ -1,0 +1,50 @@
+<% include ./header.ejs %>
+
+<div class="page-data">
+    <div class="data-btn">
+        <button onClick="addNoticia();">+ Adicionar notícia</button>
+    </div>
+    <div class="data-table">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th width="50px">Foto</th>
+                <th>Tipo</th>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Data</th>
+                <th width="120px">Ação</th>
+            </tr>
+
+            <% if(noticias.length){
+
+            for(var i = 0;i < noticias.length;i++) { %>
+
+            <tr>
+                <td><%=noticias[i].idnoticia%></td>
+                <td><img src="/images/<%= noticias[i].foto %>" class="foto-mini" /></td>
+                <td><%=noticias[i].tipo%></td>
+                <td><%=noticias[i].titulo%></td>
+                <td><%=noticias[i].descricao%></td>
+                <td><%=noticias[i].datanoticia%></td>
+                <td>
+                    <a class="a-inside edit" href="/admin/noticias/editar/<%=noticias[i].idnoticia%>">Editar</a>
+                    <a class="a-inside delete" href="/admin/noticias/excluir/<%=noticias[i].idnoticia%>">Excluir</a>
+                </td>
+            </tr>
+            <% }
+            }else{ %>
+            <tr>
+                <td colspan="7">Nenhuma notícia cadastrada</td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
+</div>
+
+<br>
+Logado como: <%= sess.email %> 
+<br>
+<a href="/logout">Sair</a>
+
+<% include ./footer.ejs %>

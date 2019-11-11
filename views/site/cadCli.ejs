@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Meu Formulário Personalizado</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+     
+  </head>
+<body>
+  
+    <div id="painel">
+        <form class="formulario"  action="#">
+               <fieldset class="conjunto" name="cadastro">
+                 <legend class="legend" name="nome"> Cadastro de cientes</legend>
+                      <label class="label1" name="lblNick">Nome: </label> <input class="input1" type="text" name="nome" value="" size="20">
+                      <label class="label2" name="lblrua">Rua</label> <input class="input2" type="text" name="rua" value="" size="20"><br>
+                      <label class="label3" name="lblbairro">Bairro</label> <input class="input3" type="text" name="bairro" value="" size="20">
+                      <label class="label4" name="lblnumero">Número</label> <input class="input4" type="number" name="numero" value="" size="20"><br>
+                      <label class="label5" name="lblcidade">cidade</label>
+                      <select class="input5" name="cidade" id="cidade">
+                      <option value="hulha">Hulha Negra</option>
+                      <option value="bage">Bagé</option>
+                      <option value="Dom">Dom Pedrito</option>
+                      <option value="acegua">Aceguá</option>
+                      </select>
+                      <label class="label6" name="lblestado">Estado</label>
+                      <select class="input6" name="estado" id="estado">
+                      <option value="rs">RS</option>
+                      <option value="sc">SC</option>
+                     </select>
+                     <label class="label7" name="lblestado">Possui CFTV?</label>
+                      <select class="input7" name="cftv" id="cftv">
+                      <option value="sim">SIM</option>
+                      <option value="nao">NÃO</option>
+                      </select>
+                      <br>
+                      <label class="label8" name="lblnumero">Data de instalação</label> <input class="input8" type="date" name="data" value="" size="20"><br>
+                      <br>
+                      <label class="label9" name="lblreferencia">Referencia da casa</label>
+                      <textarea class="input9">
+                      </textarea> 
+                      <p><input class="enviar" name="btnEnviar" type="submit" value="Enviar"></p>
+                  </fieldset>
+          </form>
+        </div>
+
+
+</body>
+</html>

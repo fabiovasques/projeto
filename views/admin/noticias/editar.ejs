@@ -1,0 +1,50 @@
+<% include ../header.ejs %>
+<section id="principal">
+<div class="page-data">
+
+    <form method="post" enctype="multipart/form-data" action="/admin/noticias/atualizar/<%= noticia[0].idnoticia %>" >
+        <table cellpadding="11">
+            <tr>
+                <td class="label">Foto atual</td>
+                <td><img src="/images/<%= noticia[0].foto %>" class="foto-mini" /></td>
+            <tr>
+                <td class="label">Foto nova</td>
+                <td><input type="file" accept="image/*" name="foto" /></td>
+            </tr>
+            <tr>
+                <td class="label">Tipo</td>
+                <td>
+                    <select class="chosen-select" name="tipo" required autocomplete="off">
+                        <option value=""></option>
+                        <option value="Beleza" <% if(noticia[0].tipo == 'Beleza') { %> <%= 'selected = "selected"' %> <% } %> > Beleza</option>
+                        <option value="Cultura" <% if(noticia[0].tipo == 'Cultura') { %> <%= 'selected = "selected"' %> <% } %> > Cultura</option>
+                        <option value="Esporte" <% if(noticia[0].tipo == 'Esporte') { %> <%= 'selected = "selected"' %> <% } %>  >Esporte</option>
+                        <option value="Tecnologia" <% if(noticia[0].tipo == 'Tecnologia') { %> <%= 'selected = "selected"' %> <% } %> >Tecnologia</option>
+                    </select>                    
+                </td>
+            </tr>
+            <%= noticia[0].tipo %>
+            <tr>
+                <td class="label">Título</td>
+                <td><input type="text" name="titulo" value="<%= noticia[0].titulo %>" required /></td>
+            </tr>
+            <tr>
+                <td class="label">Descrição</td>
+                <td><textarea name="descricao" required cols="30" rows="5"><%= noticia[0].descricao %></textarea></td>
+            </tr>
+            <tr>
+                <td class="label">Data</td>
+                <td><input type="date" name="datanoticia" value="<%= noticia[0].datanoticia %>" required /></td>
+            </tr>
+            <tr>
+                <td class="label"></td>
+                <td>
+                    <button type="submit">Salvar</button>
+                    <button type="button" onClick="cancelNoticia()">Cancelar</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</section>
+<% include ../footer.ejs %>

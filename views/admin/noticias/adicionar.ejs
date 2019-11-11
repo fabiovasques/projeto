@@ -1,0 +1,45 @@
+<% include ../header.ejs %>
+<section id="principal">
+<div class="page-data">
+    <!-- ADICIONAR O enctype="multipart/form-data" E CONFIGURAR O UPLOAD DE IMAGENS -->
+    <form method="post" enctype="multipart/form-data"  action="/admin/noticias/salvar" >
+        <table cellpadding="11">
+            <tr>
+                <td class="label">Foto</td>
+                <td><input type="file" accept="image/*" name="foto" /></td>
+            </tr>
+            <tr>
+                <td class="label">Tipo</td>
+                <td>
+                    <select class="chosen-select" name="tipo" required>
+                        <option value=""></option>
+                        <option selected value="Beleza">Beleza</option>
+                        <option value="Esporte">Esporte</option>
+                        <option value="Tecnologia">Tecnologia</option>
+                    </select>                    
+                </td>
+            </tr>
+            <tr>
+                <td class="label">Título</td>
+                <td><input type="text" name="titulo" value="teste" required /></td>
+            </tr>
+            <tr>
+                <td class="label">Descrição</td>
+                <td><textarea name="descricao" required cols="30" rows="5">Teste</textarea></td>
+            </tr>
+            <tr>
+                <td class="label">Data</td>
+                <td><input type="date" value="2019-10-10" name="datanoticia" required /></td>
+            </tr>
+            <tr>
+                <td class="label"></td>
+                <td>
+                    <button type="submit">Salvar</button>
+                    <button type="button" onClick="cancelNoticia()">Cancelar</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</section>
+<% include ../footer.ejs %>
