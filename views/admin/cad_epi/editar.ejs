@@ -1,0 +1,76 @@
+
+<% include ../header.ejs %>
+<section id="principal">
+<div class="page-data">
+
+    <form method="post" enctype="multipart/form-data" action="/admin/cad_epi/atualizar/<%= cad_epi[0].id%>">
+        <br>
+        <br>
+
+
+        
+        <table cellpadding="11">
+      
+            <tr>
+                <td class="label">Foto atual</td>
+                <td><img src="/images/<%= cad_epi[0].foto %>" class="foto-mini"/></td>
+            <tr>
+                <td class="label">Foto nova</td>
+                <td><input type="file" accept="image/*" name="foto"/></td>
+            </tr>
+    
+            <tr>
+                <td class="label">tipo de E.P.I</td>
+                <td>
+                    <select class="chosen-select" name="tipo_epi" required autocomplete="off">
+                        <option value=""></option>
+                        <option value="luva" <% if(cad_epi[0].tipo_epi == 'luva') { %> <%= 'selected = "selected"' %> <% } %> > luva</option>
+                        <option value="capacete" <% if(cad_epi[0].tipo_epi == 'capacete') { %> <%= 'selected = "selected"' %> <% } %> > capacete</option>
+                        <option value="cinto de seguranca" <% if(cad_epi[0].tipo_epi == 'cinto de seguranca') { %> <%= 'selected = "selected"' %> <% } %>  >cinto de seguranca</option>
+                        <option value="Botina" <% if(cad_epi[0].tipo_epi == 'Botina') { %> <%= 'selected = "selected"' %> <% } %>  >Botina</option>
+                        <option value="Óculos de segurança" <% if(cad_epi[0].tipo_epi == 'Óculos de segurança') { %> <%= 'selected = "selected"' %> <% } %>  >Óculos de segurança</option>
+
+
+            <%= cad_epi[0].tipo_epi %>
+            <tr>
+                <td class="label">C.A</td>
+                <td>
+                        <input type="text" name="ca" value="<%= cad_epi[0].ca%>" required />
+                </td>
+                <tr>
+                    <td class="label">vencimento do C.A</td>
+                    <td><input type="date" name="venc_ca" value="<%= cad_epi[0].venc_ca%>" required /></td>
+                </tr>
+                <tr>
+                    <td  class="label">fabricante do E.P.I</td>
+                    <td>
+                    <select class="chosen-select" name="fabri_epi" required autocomplete="off">
+                        <option value=""></option>
+                        <option value="carbografite" <% if(cad_epi[0].fabri_epi == 'carbografite') { %> <%= 'selected = "selected"' %> <% } %> >carbgrafite</option>
+                        <option value="pometal" <% if(cad_epi[0].fabri_epi == 'prometal') { %> <%= 'selected = "selected"' %> <% } %> > prometal</option>
+                        <option value="super sefety" <% if(cad_epi[0].fabri_epi == 'super sefety') { %> <%= 'selected = "selected"' %> <% } %>  >super sefety</option>
+                        <option value="promat" <% if(cad_epi[0].fabri_epi == 'promat') { %> <%= 'selected = "selected"' %> <% } %>  >promat</option>
+                        <option value="fujiwara" <% if(cad_epi[0].fabri_epi == 'fujiwara') { %> <%= 'selected = "selected"' %> <% } %>  >fujiwara</option>
+                    </select> 
+                </td>    
+                
+                </tr>
+                
+                <tr>
+                    <td class="label">descrição</td>
+                    <td>
+                            <input type="text" name="descricao" value="<%= cad_epi[0].descricao %>" required />
+                    </td>
+                </tr>
+            <tr>
+                <td class="label"></td>
+                <td>
+                    <button type="submit">Salvar</button>
+                    <button type="button" onClick="cancelEpi()">Cancelar</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</section>
+<% include ../footer.ejs %>

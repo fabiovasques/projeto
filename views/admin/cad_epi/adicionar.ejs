@@ -1,0 +1,65 @@
+<% include ../header.ejs %>
+<section id="principal">
+<div class="page-data">
+    <br>
+    <br>
+    <br>
+    <!-- ADICIONAR O enctype="multipart/form-data" E CONFIGURAR O UPLOAD DE IMAGENS -->
+    <form method="post" enctype="multipart/form-data"  action="/admin/cad_epi/salvar" >
+        <table cellpadding="11">
+            
+            <tr>
+                    <td class="label">tipo de E.P.I</td>
+                    <td>
+                        <select class="chosen-select" name="tipo_epi" required>
+                            <option value=""></option>
+                            <option selected value="luva">Luva</option>
+                            <option value="capacete">Capacete</option>
+                            <option value="cinto-seguranca">cinto de segurança</option>
+                            <option value="botina">Btina</option>
+                            <option value="oculos">oculos de segurança</option>
+                        </select>                    
+                    </td>
+           
+            <tr>
+                    <td class="label">C.A</td>
+                    <td><input type="text" name="ca" value="" required /></td>
+            </tr>
+            <tr>
+                        <td class="label">Vencimento do C.A</td>
+                        <td><input type="date" value="" name="venc_ca" required /></td>
+            </tr>
+            <tr>
+                    <td class="label">Fabricante do E.P.I</td>
+                    <td>
+                        <select class="chosen-select" name="fabri_epi" required>
+                            <option value=""></option>
+                            <option selected value="carbografite">Carbografite</option>
+                            <option value="prometal">Prometal</option>
+                            <option value="Super-Safety">Super Safety</option>
+                            <option value="Promat">Promat</option>
+                            <option value="Fujiwara">Fujiwara</option>
+                        </select>                    
+                    </td>
+            </tr>
+
+            <tr>
+                <td class="label">Descrição</td>
+                <td><textarea name="descricao" required cols="30" rows="5"></textarea></td>
+            </tr>
+            <tr>
+                <td class="label">Foto do E.P.I</td>
+                <td><input type="file" accept="image/*" name="foto" /></td>
+            </tr>
+            <tr>
+                <td class="label"></td>
+                <td>
+                    <button type="submit">Salvar</button>
+                    <button type="button" onClick="cancelNoticia()">Cancelar</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</section>
+<% include ../footer.ejs %>
