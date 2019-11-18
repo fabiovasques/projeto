@@ -1,50 +1,75 @@
 <% include ./header.ejs %>
 
+<div class="panel panel-default">
+        <div class="panel-heading">Área admnistrativa de gestão dos EPIS
+            
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             Logado como: <%= sess.email %> <a href="/logout">Sair</a>
+            
+        </div>
+
+
 <div class="page-data">
     <div class="data-btn">
-        <button onClick="addNoticia();">+ Adicionar notícia</button>
+        <button onClick="addEpi();">+ Cadastrar E.P.I</button>
     </div>
+    <br>
+    <br>
+    
     <div class="data-table">
         <table>
             <tr>
-                <th>Id</th>
-                <th width="50px">Foto</th>
-                <th>Tipo</th>
-                <th>Título</th>
-                <th>Descrição</th>
-                <th>Data</th>
-                <th width="120px">Ação</th>
+                <th width="90px"> Id</th>
+                <th width="50px">Foto do E.P.I</th>
+                <th width="50px">Tipo do E.P.I</th>
+                <th>C.A</th>
+                <th>Vncimento do C.A</th>
+                <th>fabricante do  E.P.I</th>
+                <th width="120px">Descrição</th>
+                <th width="180px">Ação</th>
             </tr>
 
-            <% if(noticias.length){
+            <% if(cad_epi.length){
 
-            for(var i = 0;i < noticias.length;i++) { %>
+            for(var i = 0;i < cad_epi.length;i++) { %>
 
             <tr>
-                <td><%=noticias[i].idnoticia%></td>
-                <td><img src="/images/<%= noticias[i].foto %>" class="foto-mini" /></td>
-                <td><%=noticias[i].tipo%></td>
-                <td><%=noticias[i].titulo%></td>
-                <td><%=noticias[i].descricao%></td>
-                <td><%=noticias[i].datanoticia%></td>
-                <td>
-                    <a class="a-inside edit" href="/admin/noticias/editar/<%=noticias[i].idnoticia%>">Editar</a>
-                    <a class="a-inside delete" href="/admin/noticias/excluir/<%=noticias[i].idnoticia%>">Excluir</a>
+                <td><%=cad_epi[i].id%></td>
+                <td><img src="/images/<%= cad_epi[i].foto %>" class="foto-mini" /></td>
+                <td><%=cad_epi[i].tipo_epi%></td>
+                <td><%=cad_epi[i].ca%></td>
+                <td><%=cad_epi[i].venc_ca%></td>
+                <td><%=cad_epi[i].fabri_epi%></td>
+                <td><%=cad_epi[i].descricao%></td>
+               <td>
+                    <a class="a-inside edit" href="/admin/cad_epi/editar/<%=cad_epi[i].id%>">Editar</a>
+                    <a class="a-inside delete" href="/admin/cad_epi/excluir/<%=cad_epi[i].id%>">Excluir</a>
                 </td>
+                
+
             </tr>
             <% }
             }else{ %>
             <tr>
-                <td colspan="7">Nenhuma notícia cadastrada</td>
+                <td colspan="7">Nenhum EPI cadastrado</td>
             </tr>
             <% } %>
         </table>
-    </div>
+
+
+</div>
 </div>
 
-<br>
-Logado como: <%= sess.email %> 
-<br>
-<a href="/logout">Sair</a>
+</div>
+
+
 
 <% include ./footer.ejs %>
