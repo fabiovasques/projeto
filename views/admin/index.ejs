@@ -27,14 +27,14 @@
     <div class="data-table">
         <table>
             <tr>
-                <th width="90px"> Id</th>
-                <th width="50px">Foto do E.P.I</th>
-                <th width="50px">Tipo do E.P.I</th>
+                <th width="50px"> Id</th>
+                <th width="20px">Foto do E.P.I</th>
+                <th width="30px">Tipo do E.P.I</th>
                 <th>C.A</th>
-                <th>Vncimento do C.A</th>
-                <th>fabricante do  E.P.I</th>
-                <th width="120px">Descrição</th>
-                <th width="180px">Ação</th>
+                <th width="20px">Vncimento do C.A</th>
+                <th width="30px">fabricante do  E.P.I</th>
+                <th width="20px">Descrição</th>
+                <th width="200px">Ação</th>
             </tr>
 
             <% if(cad_epi.length){
@@ -50,6 +50,8 @@
                 <td><%=cad_epi[i].fabri_epi%></td>
                 <td><%=cad_epi[i].descricao%></td>
                <td>
+                    <div class="page-data">
+                            <div class="data-btn">
                     <a class="a-inside edit" href="/admin/cad_epi/editar/<%=cad_epi[i].id%>">Editar</a>
                     <a class="a-inside delete" href="/admin/cad_epi/excluir/<%=cad_epi[i].id%>">Excluir</a>
                 </td>

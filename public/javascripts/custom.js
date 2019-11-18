@@ -5,10 +5,14 @@ $(document).ready(function() {
   $('.table').DataTable();
 });
 
-function addNoticia(){            
-  window.location.href = '/admin/noticias/adicionar';
+function addEpi(){            
+  window.location.href = '/admin/cad_epi/adicionar';
 }
 
-function cancelNoticia(){  
+function cancelEpi(){  
   window.location.href = '/admin';
+}
+
+function EditarEpi(){  
+  window.location.href = '/admin/cad_epi/editar';
 }

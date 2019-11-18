@@ -1,0 +1,36 @@
+<% include ./header.ejs %>
+
+<section id="principal">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>Ver registros
+    </div>
+    <div class="row">
+
+    <%=cad_epi %>    
+
+    <% if(cad_epi){ 
+    %>
+
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="/images/<%= cad_epi.foto %>" />
+          <div class="caption">
+            <h3><%= cad_epi.tipo_epi %></h3>
+            <p><%= cad_epi.descricao %> </p>
+            <small class="label label-success"><%= cad_epi.tipo_epi %></small>
+            <small class="label label-warning"><%= cad_epi.venc_ca %> </small>
+          </div>
+        </div>
+      </div>
+
+    <%
+      } 
+    %>     
+
+    </div>
+  </div>
+</section>
+
+<% include ./footer.ejs %>
