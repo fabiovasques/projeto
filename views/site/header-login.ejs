@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- cabeçalho do codigo-->
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
+  <link rel="stylesheet" href="/stylesheets/dataTables.bootstrap.min.css" />
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.js"></script>
+  <script src="/javascripts/jquery.dataTables.min.js"></script>
+  <script src="/javascripts/dataTables.bootstrap.min.js"></script>
+  <script src="/javascripts/validator.js"></script>
+  <script src="/javascripts/custom.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+
+
+  <title>login</title>
+
+</head>
+
+
+<body>
+  <header>
+      <!-- cabeçalho da página-->
+
+      <nav class="navbar- navbar-inverse">
+         <div class="container-fluid">
+             <ul class="nav navbar-nav">
+                <li class="active"><a href="/index">Home</a></li>
+                <li class="dropdown">
+                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastros
+                 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><a href="#">EPIS</a></li>
+                  <li><a href="#">Fornecedores</a></li>
+                  <li><a href="#">Funcionários</a></li>
+              </ul>
+                    </li>
+                   <li><a href="#">Contato</a></li>
+                   <li><a href="/login">Login</a></li>
+
+
+               </ul>
+           </div>
+           
+        </nav>
+
+        <div class="jumbotron jumbotron-fluid      ">
+                        <div class="panel-heading">Acesso Restrito</div>
+                <div class="container">
+                <form action="/login/entrar" id="formLogin" data-toggle="validator" role="form" method="POST">
+                <div class="form-group">
+                    <label for="inputEmail" class="control-label">E-mail</label>
+                    <input id="inputEmail" class="text-center border border-light p-5" type="email" name="email" value=""   data-error="Por favor, informe um e-mail correto." required />
+                    <div class="help-block with-errors"></div>
+                 </div>
+                 <div class="form-group">
+                    <label for="textSenha" class="control-label">Senha</label>
+                    <input id="inputSenha" class="text-center border border-light p-5" type="password" name="senha" value=""   data-error="Por favor, a sua senha." required />
+                    <div class="help-block with-errors"></div>
+                </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                  </div>
+                
+                </form>
+                  </div>
+                 
+              </div>
+            </div>
+          
+        </div>
+   
+
+  </header>
