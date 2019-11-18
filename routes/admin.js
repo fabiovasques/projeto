@@ -5,7 +5,7 @@ const express = require ("express");
 
 
 // conexão com o postgres
-var connectionString = "postgres://postgres:postgres@localhost:5432/portal"; 
+var connectionString = "postgres://postgres:postgres@localhost:5432/segwaretst"; 
 const client = new Client({ connectionString: connectionString }); 
 client.connect();
 
@@ -21,22 +21,22 @@ exports.index = function (req, res) {
     sess = req.session;
     // verifica a sessão
     if(sess.email) {
-        client.query("SELECT *, to_char( datanoticia, 'DD/MM/YYYY') AS datanoticia FROM noticia ORDER BY idnoticia", function (err, result) {
+        client.query("SELECT *, to_char( venc_ca, 'DD/MM/YYYY') AS venc_ca FROM cad_epi ORDER BY id", function (err, result) {
             if (err) {
                 console.log(err);
                 res.status(400).send(err);
             }
-            res.render('admin/index', { noticias: result.rows });
-        });
-    }
+            res.render('admin/index', { cad_epi: result.rows });
+        });                        
+    }                 
     else {
         res.redirect('/logout');
     }
 };
 
-// rota adicionar notícia
+// rota adicionar epi
 exports.adicionar = function (req, res) {
-    res.render('admin/noticias/adicionar');
+    res.render('admin/cad_epi/adicionar');
 };
 
 // rota página de login
@@ -45,7 +45,7 @@ exports.login = function (req, res) {
 };
 
 
-// rota salvar notícia
+// rota salvar epi
 exports.salvar = function (req, res) {
 
     // upload da foto
@@ -59,13 +59,14 @@ exports.salvar = function (req, res) {
     // campos do formulário
     var form2 = new formidable.IncomingForm();
     form2.parse(req, function (err, fields, files) {
-        var tipo = fields.tipo;
-        var titulo = fields.titulo;
+        var tipo_epi= fields.tipo_epi;
+        var ca = fields.ca;
         var descricao = fields.descricao;
-        var datanoticia = fields.datanoticia;
+        var venc_ca = fields.venc_ca;
+        var fabri_epi = fields.fabri_epi;
         var foto = files.foto.name;
         // console.log(files.foto);   
-        client.query("INSERT INTO noticia (titulo, tipo, descricao, foto, datanoticia) VALUES($1, $2, $3, $4, $5) RETURNING *", [titulo, tipo, descricao, foto, datanoticia], function (err, result) {
+        client.query("INSERT INTO cad_epi (tipo_epi, ca, venc_ca, fabri_epi,descricao,foto) VALUES($1, $2, $3, $4, $5,$6) RETURNING *", [tipo_epi, ca,venc_ca,fabri_epi,descricao,foto], function (err, result) {
             if (err) {
                 console.log("Erro: %s ", err);
             }            
@@ -80,21 +81,21 @@ exports.salvar = function (req, res) {
 
 
 
-// rota editar notícia
+// rota editar epi
 exports.editar = function (req, res) {
-    var idnoticia = req.params.idnoticia;
+    var id = req.params.id;
 
-    client.query("SELECT *, to_char( datanoticia, 'YYYY-MM-DD') AS datanoticia FROM noticia WHERE idnoticia=$1", [idnoticia], function (err, result) {
+    client.query("SELECT *, to_char( venc_ca, 'YYYY-MM-DD') AS venc_ca FROM cad_epi WHERE id=$1", [id], function (err, result) {
         if (err) {
             console.log(err);
             res.status(400).send(err);
         }
-        res.render('admin/noticias/editar', { noticia: result.rows });
+        res.render('admin/cad_epi/editar', { cad_epi: result.rows });
     });
 };
 
 
-// rota atualizar notícia
+// rota atualizar  epi
 exports.atualizar = function (req, res) {
 
       // upload da foto nova
@@ -106,7 +107,7 @@ exports.atualizar = function (req, res) {
           // verifica se a foto foi alterada
           if(file.name != ''){
             file.path = 'public/images/' + file.name;
-            client.query("UPDATE noticia SET foto=$1 WHERE idnoticia=$2", [file.name, req.params.idnoticia], function (err, result) {
+            client.query("UPDATE cad_epi SET foto=$1 WHERE id=$2", [file.name, req.params.id], function (err, result) {
                 if (err) {
                     console.log("Erro: %s ", err);
                 }            
@@ -117,12 +118,14 @@ exports.atualizar = function (req, res) {
       // campos do formulário
       var form2 = new formidable.IncomingForm();
       form2.parse(req, function (err, fields, files) {
-          var tipo = fields.tipo;
-          var titulo = fields.titulo;
+          var tipo_epi = fields.tipo_epi;
+          var ca = fields.ca;
+          var venc_ca = fields.venc_ca;
+          var fabri_epi = fields.fabri_epi;
           var descricao = fields.descricao;
-          var datanoticia = fields.datanoticia;
+          
           // console.log(files.foto);   
-          client.query("UPDATE noticia SET titulo=$1, tipo=$2, descricao=$3, datanoticia=$4 WHERE idnoticia=$5", [titulo, tipo, descricao, datanoticia, req.params.idnoticia], function (err, result) {
+          client.query("UPDATE cad_epi SET tipo_epi=$1, ca=$2, venc_ca=$3, fabri_epi=$4, descricao=$5 WHERE id=$6", [tipo_epi, ca, venc_ca, fabri_epi, descricao, req.params.id], function (err, result) {
               if (err) {
                   console.log("Erro: %s ", err);
               }            
@@ -134,11 +137,11 @@ exports.atualizar = function (req, res) {
 
 };
 
-// rota excluir notícia
+// rota excluir epi
 // ADICIONAR A REMOÇÃO DA IMAGEM
 exports.excluir = function (req, res) {
-    var idnoticia = req.params.idnoticia;
-    client.query("DELETE FROM noticia WHERE idnoticia=$1", [idnoticia], function (err, rows) {
+    var id = req.params.id;
+    client.query("DELETE FROM cad_epi WHERE id=$1", [id], function (err, rows) {
         if (err) {
             console.log("Erro: %s ", err);
         }
