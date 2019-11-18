@@ -6,7 +6,7 @@ client.connect();
 
 // rota index 
 exports.index = function (req, res) {
-  client.query("SELECT *, to_char( datanoticia, 'DD/MM/YYYY') AS datanoticia FROM noticia", function (err, result) {
+  client.query("SELECT *, to_char( venc_ca, 'DD/MM/YYYY') AS venc_ca FROM cad_epi", function (err, result) {
       if (err) {
           console.log(err);
           res.status(400).send(err);
