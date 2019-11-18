@@ -43,11 +43,11 @@ app.post('/login/entrar', routes.entrar);
 
 // ADMIN
 app.get('/admin', admin.index);
-app.get('/admin/noticias/adicionar', admin.adicionar);
-app.post('/admin/noticias/salvar', admin.salvar);
-app.get('/admin/noticias/excluir/:idnoticia', admin.excluir);
-app.get('/admin/noticias/editar/:idnoticia', admin.editar);
-app.post('/admin/noticias/atualizar/:idnoticia', admin.atualizar);
+app.get('/admin/cad_epi/adicionar', admin.adicionar);
+app.post('/admin/cad_epi/salvar', admin.salvar);
+app.get('/admin/cad_epi/excluir/:id', admin.excluir);
+app.get('/admin/cad_epi/editar/:id', admin.editar);
+app.post('/admin/cad_epi/atualizar/:id', admin.atualizar);
 
 // iniciar um servidor com uma porta específica
 app.listen(5000, function () {
